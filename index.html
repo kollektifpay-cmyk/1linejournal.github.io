@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1 Line Journal - One Sentence a Day, One Life Remembered</title>
+    <meta name="description" content="Simple journaling app. Write one sentence a day, build streaks, track your mood, and capture your life's moments.">
     <style>
         * {
             margin: 0;
@@ -15,78 +16,151 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            background: #f8f9fa;
         }
 
-        .container {
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+        }
+
+        .hero-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
 
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            color: white;
+        .hero-text {
+            text-align: left;
         }
 
         .logo {
-            font-size: 48px;
-            margin-bottom: 10px;
+            font-size: 64px;
+            margin-bottom: 20px;
         }
 
         h1 {
-            font-size: 42px;
+            font-size: 52px;
             margin-bottom: 20px;
             font-weight: 700;
+            line-height: 1.2;
         }
 
         .tagline {
             font-size: 24px;
-            opacity: 0.9;
-            margin-bottom: 40px;
+            opacity: 0.95;
+            margin-bottom: 30px;
         }
 
         .cta-button {
             display: inline-block;
             background: white;
             color: #667eea;
-            padding: 16px 48px;
+            padding: 18px 48px;
             border-radius: 50px;
             text-decoration: none;
             font-size: 18px;
             font-weight: 600;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(0,0,0,0.3);
         }
 
-        .content {
-            background: white;
+        .hero-phone {
+            position: relative;
+        }
+
+        .phone-mockup {
+            max-width: 320px;
+            margin: 0 auto;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .phone-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .languages {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .lang-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 6px 14px;
             border-radius: 20px;
-            padding: 60px 40px;
-            margin: 40px 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            font-size: 13px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Features Grid */
+        .section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin: 60px 0;
+            margin-top: 60px;
         }
 
         .feature {
-            text-align: center;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
         .feature-icon {
-            font-size: 48px;
+            font-size: 56px;
             margin-bottom: 20px;
         }
 
@@ -102,35 +176,106 @@
             line-height: 1.8;
         }
 
-        .section {
-            margin: 60px 0;
+        /* Screenshot Gallery */
+        .screenshots {
+            background: white;
+            padding: 80px 20px;
         }
 
-        .section h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
-            color: #667eea;
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .screenshot-item {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+        }
+
+        .screenshot-item:hover {
+            transform: scale(1.05);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+
+        .step {
             text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 40px 20px;
+            border-radius: 20px;
         }
 
-        .section p {
-            font-size: 18px;
-            color: #666;
-            line-height: 1.8;
+        .step-number {
+            font-size: 48px;
+            font-weight: 700;
             margin-bottom: 20px;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px 20px;
+        .step h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .step p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #667eea;
             color: white;
-            font-size: 14px;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
         }
 
         footer a {
             color: white;
             text-decoration: none;
-            border-bottom: 1px solid rgba(255,255,255,0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
             transition: border-color 0.3s;
         }
 
@@ -138,136 +283,190 @@
             border-color: white;
         }
 
-        .languages {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
 
-        .lang-badge {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-        }
+            .hero-text {
+                text-align: center;
+            }
 
-        @media (max-width: 768px) {
             h1 {
-                font-size: 32px;
+                font-size: 38px;
             }
 
             .tagline {
-                font-size: 18px;
+                font-size: 20px;
             }
 
-            .content {
-                padding: 40px 20px;
-                margin: 20px 10px;
+            .section-title {
+                font-size: 32px;
             }
 
-            .features {
-                gap: 30px;
+            .screenshot-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">📝</div>
-            <h1>1 Line Journal</h1>
-            <p class="tagline">One Sentence a Day, One Life Remembered</p>
-            <a href="https://play.google.com/store/apps/details?id=com.onelinejournal.app" class="cta-button">
-                Download on Google Play
-            </a>
-            <div class="languages">
-                <span class="lang-badge">🇹🇷 Turkish</span>
-                <span class="lang-badge">🇬🇧 English</span>
-                <span class="lang-badge">🇩🇪 German</span>
-                <span class="lang-badge">🇫🇷 French</span>
-                <span class="lang-badge">🇪🇸 Spanish</span>
-                <span class="lang-badge">🇵🇹 Portuguese</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="logo">📝</div>
+                <h1>1 Line Journal</h1>
+                <p class="tagline">One Sentence a Day,<br>One Life Remembered</p>
+                <p style="font-size: 18px; opacity: 0.9; margin-bottom: 30px;">
+                    Simple journaling made sustainable. Build habits, track moods, and capture your life's moments—one sentence at a time.
+                </p>
+                <a href="https://play.google.com/store/apps/details?id=com.onelinejournal.app" class="cta-button">
+                    📱 Download on Google Play
+                </a>
+                <div class="languages">
+                    <span class="lang-badge">🇹🇷 Turkish</span>
+                    <span class="lang-badge">🇬🇧 English</span>
+                    <span class="lang-badge">🇩🇪 German</span>
+                    <span class="lang-badge">🇫🇷 French</span>
+                    <span class="lang-badge">🇪🇸 Spanish</span>
+                    <span class="lang-badge">🇵🇹 Portuguese</span>
+                </div>
             </div>
-        </header>
+            <div class="hero-phone">
+                <div class="phone-mockup">
+                    <img src="images/today-screen.png" alt="1 Line Journal App Screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <div class="content">
-            <div class="section">
-                <h2>✨ Why 1 Line Journal?</h2>
-                <p>
-                    Is journaling too long and exhausting? 1 Line Journal makes journaling sustainable.
-                    Write one sentence a day, capture your life. Simple, meaningful, a habit that grows with you.
-                </p>
-                <p style="text-align: center; margin-top: 30px; font-size: 20px; color: #667eea; font-weight: 600;">
-                    One sentence is enough. Capture your day in 10 seconds.
-                </p>
-            </div>
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">✨ Why 1 Line Journal?</h2>
+            <p class="section-subtitle">
+                Is journaling too long and exhausting? We make it sustainable. One sentence is all it takes to capture your day.
+            </p>
 
             <div class="features">
                 <div class="feature">
                     <div class="feature-icon">🔥</div>
                     <h3>Streak System</h3>
-                    <p>Your streak grows every day you write. Celebrate 7, 30, 100-day milestones. Keep your motivation high.</p>
+                    <p>Build momentum by writing every day. Celebrate 7, 30, and 100-day milestones. Watch your consistency grow.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">📊</div>
                     <h3>Statistics & Analytics</h3>
-                    <p>See your mood trends. Track your weekly/monthly writing habits. Relive your memories with Life Replay feature.</p>
+                    <p>See your mood trends over time. Track weekly and monthly habits. Relive memories with Life Replay feature.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">🗓️</div>
-                    <h3>Memories</h3>
-                    <p>See what you wrote on this day in past years. Explore your journey through time. Your personal history is in your hands.</p>
+                    <h3>On This Day Memories</h3>
+                    <p>Get reminded of what you wrote on this day in past years. Your personal time machine.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">🔒</div>
-                    <h3>Security & Privacy</h3>
-                    <p>PIN or biometric lock. Encrypted data. Optional cloud backup. Your data is completely private.</p>
+                    <h3>Privacy First</h3>
+                    <p>PIN or biometric lock. End-to-end encrypted. Optional cloud backup. Your data stays yours.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">🎨</div>
-                    <h3>Minimal Design</h3>
-                    <p>Clean, distraction-free interface. Dark & Light themes. Perfect on every device.</p>
+                    <h3>Beautiful Design</h3>
+                    <p>Clean, distraction-free interface. Dark & Light themes. Feels natural on every device.</p>
                 </div>
 
                 <div class="feature">
                     <div class="feature-icon">⚡</div>
                     <h3>Fast & Offline</h3>
-                    <p>No internet required. Works offline. Data syncs automatically when online.</p>
+                    <p>Works without internet. Syncs automatically when online. Write anytime, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section class="screenshots">
+        <div class="container">
+            <h2 class="section-title">📱 See It In Action</h2>
+            <p class="section-subtitle">
+                A glimpse into your future journaling habit
+            </p>
+
+            <div class="screenshot-grid">
+                <div class="screenshot-item">
+                    <img src="images/today-screen.png" alt="Today Screen - Write your daily entry">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/timeline-screen.png" alt="Timeline - Browse your memories">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/history-screen.png" alt="History Calendar - Track your streak">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/review-screen.png" alt="Review - Monthly statistics">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">🚀 How It Works</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">
+                Three simple steps to capture your day
+            </p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Mood</h3>
+                    <p>Select today's emotion with a single tap</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Write One Sentence</h3>
+                    <p>Capture your day in 10 seconds</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Build Your Streak</h3>
+                    <p>Come back tomorrow and keep growing</p>
                 </div>
             </div>
 
-            <div class="section">
-                <h2>🚀 How It Works</h2>
-                <p>1️⃣ Choose today's mood</p>
-                <p>2️⃣ Write one sentence</p>
-                <p>3️⃣ Save - that's it!</p>
-                <p style="text-align: center; margin-top: 40px; font-style: italic; color: #888;">
-                    "Short moments instead of long journals. Consistency is more important than perfection."
-                </p>
-            </div>
-
-            <div class="section" style="text-align: center;">
-                <h2>📱 Get Started Now</h2>
-                <p style="margin-bottom: 40px;">Start today, thank yourself tomorrow.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.onelinejournal.app" class="cta-button">
-                    Download on Google Play
-                </a>
-            </div>
-        </div>
-
-        <footer>
-            <p>© 2024 1 Line Journal. All rights reserved.</p>
-            <p style="margin-top: 20px;">
-                <a href="privacy-policy.html">Privacy Policy</a> | 
-                <a href="mailto:kollektifpay@gmail.com">Contact</a>
+            <p style="text-align: center; margin-top: 50px; font-size: 20px; font-style: italic;">
+                "Consistency beats perfection. One sentence is better than none."
             </p>
-        </footer>
-    </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start Your Journey Today</h2>
+            <p>Begin today, thank yourself tomorrow</p>
+            <a href="https://play.google.com/store/apps/details?id=com.onelinejournal.app" class="cta-button">
+                Download Free on Google Play
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 1 Line Journal. All rights reserved.</p>
+        <p style="margin-top: 15px;">
+            <a href="privacy-policy.html">Privacy Policy</a> | 
+            <a href="mailto:kollektifpay@gmail.com">Contact</a>
+        </p>
+    </footer>
 </body>
 </html>
