@@ -4,7 +4,8 @@
 This repository contains the official website and privacy policy for the 1 Line Journal mobile app.
 
 ## 🌐 Live Site
-https://1linejournal.github.io
+https://onelinejournal.net  
+(or https://kollektifpay-cmyk.github.io/1linejournal.github.io/)
 
 ## 📄 Contents
 
@@ -34,4 +35,4 @@ Email: kollektifpay@gmail.com
 
 ## 📝 License
 
-© 2024 1 Line Journal. All rights reserved.
+© 2026 1 Line Journal. All rights reserved.
